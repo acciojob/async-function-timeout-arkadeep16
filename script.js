@@ -8,4 +8,18 @@ btn.addEventListener("click", (event) => {
 	textVal = text.value;
 	delayVal = delay.value;
 	console.log(textVal,delayVal);
+
+	async function handlePromise(textVal, delayVal) {
+		const myPromise = new Promise ((resolve,reject)=>{
+			setTimeout(()=>{
+				resolve(textVal)
+			}, delayVal)
+		})
+
+		const res = await myPromise;
+		document.getElementById("output").innerText = res
+	}
+	handlePromise(textVal, delayVal);  
 })
+
+
